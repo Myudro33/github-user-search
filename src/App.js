@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./App.css";
+import Container from "./Components/Container";
+import Navbar from "./Components/Navbar";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  const [theme, settheme] = useState(true);
 
-export default App
+  return (
+    <div
+      className={`w-full h-screen flex justify-center items-center ${
+        theme ? "light-color" : "dark-color"
+      }`}
+    >
+      <Container>
+        <Navbar theme={theme} settheme={settheme} />
+      </Container>
+    </div>
+  );
+};
+
+export default App;

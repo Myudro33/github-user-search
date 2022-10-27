@@ -17,7 +17,7 @@ const App = () => {
       <Container>
         <Navbar theme={theme} settheme={settheme} />
         <Input setuser={setuser} theme={theme} />
-        <Info user={user} />
+        <Info user={user} theme={theme} />
       </Container>
     </div>
   );

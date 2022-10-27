@@ -76,7 +76,7 @@ const Info = ({ user, theme }) => {
         </div>
       </div>
       <p
-        className={`md:w-5/6 xs:w-full h-14 overflow-hidden xs:text-xs md:text-sm ${
+        className={`md:w-5/6 xs:w-full md:p-0 xs:p-1 h-14 overflow-hidden xs:text-xs md:text-sm ${
           theme ? "text-[#4b6a9b]" : "text-white"
         }`}
       >

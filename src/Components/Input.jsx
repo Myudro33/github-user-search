@@ -14,12 +14,12 @@ const Input = ({ theme,setuser }) => {
     <div
       className={`${
         theme ? "info-lightColor" : "info-darkColor"
-      } rounded-xl  w-full h-16 flex justify-between items-center p-3 mt-5`}
+      } rounded-xl  w-full h-16 flex justify-between items-center shadow-md p-3 mt-5`}
     >
       <span className="flex items-center">
         <img src={iconSearch} alt="icon" />
         <input
-          className={`bg-transparent ${
+          className={`bg-transparent md:placeholder:text-base xs:placeholder:text-xs md:w-52 xs:w-40 ${
             theme ? "text-black" : "text-white"
           } outline-none ml-3`}
           type="text"

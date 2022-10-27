@@ -43,12 +43,11 @@ const Info = ({ user, theme }) => {
     };
     getUser();
   }, [user]);
-  console.log(data);
   return (
     <div
-      className={`w-full h-96 flex flex-col p-6 items-end ${
+      className={`w-full md:h-96 xs:h-[25rem]  flex flex-col md:p-6 xs:p-2 md:items-end ${
         theme ? "info-lightColor" : "info-darkColor"
-      } rounded-lg mt-5 `}
+      } rounded-lg mt-5 shadow-md`}
     >
       <div className="w-full h-28 flex p-4 justify-between">
         <img
@@ -56,9 +55,9 @@ const Info = ({ user, theme }) => {
           src={data?.avatar_url}
           alt="userImg"
         />
-        <div className="h-full w-56">
+        <div className="h-full md:w-56">
           <h1
-            className={`text-2xl font-semibold w-full max-w-fit mt-1 overflow-hidden ${
+            className={`md:text-2xl font-semibold w-full max-w-fit mt-1 overflow-hidden ${
               theme ? "" : "text-white"
             }`}
           >
@@ -70,21 +69,21 @@ const Info = ({ user, theme }) => {
             } cursor-pointer`}
           >{`@${data?.login}`}</p>
         </div>
-        <div className="h-full w-56">
+        <div className="h-full md:w-56 xs:w-1/3">
           <p
-            className={`mt-2 ${theme ? "text-[#4b6a9b]" : "text-white"}`}
+            className={`mt-2 md:text-base xs:text-xs ${theme ? "text-[#4b6a9b]" : "text-white"}`}
           >{`Joined At ${day} ${month} ${year}`}</p>
         </div>
       </div>
       <p
-        className={`w-5/6 h-14 overflow-hidden text-sm ${
+        className={`md:w-5/6 xs:w-full h-14 overflow-hidden xs:text-xs md:text-sm ${
           theme ? "text-[#4b6a9b]" : "text-white"
         }`}
       >
         {data?.bio !== null ? data?.bio : "User bio is empty"}
       </p>
       <div
-        className={`h-20 w-5/6  flex rounded-lg justify-between p-2 ${
+        className={`h-20 md:w-5/6 xs:w-full  flex rounded-lg md:justify-between xs:justify-around p-2 ${
           theme ? "light-color" : "dark-color"
         }`}
       >
@@ -93,7 +92,7 @@ const Info = ({ user, theme }) => {
             theme ? "text-[#4b6a9b]" : "text-white"
           }`}
         >
-          <p className={``}>Repos</p>
+          <p className={`md:text-base xs:text-sm`}>Repos</p>
           <h1 className="text-2xl mt-2">{data?.public_repos}</h1>
         </span>
         <span
@@ -101,7 +100,7 @@ const Info = ({ user, theme }) => {
             theme ? "text-[#4b6a9b]" : "text-white"
           }`}
         >
-          <p className={``}>Followers</p>
+          <p className={`md:text-base xs:text-sm`}>Followers</p>
           <h1 className="text-2xl mt-2">{data?.followers}</h1>
         </span>
         <span
@@ -109,19 +108,30 @@ const Info = ({ user, theme }) => {
             theme ? "text-[#4b6a9b]" : "text-white"
           }`}
         >
-          <p className={``}>Following</p>
+          <p className={`md:text-base xs:text-sm`}>Following</p>
           <h1 className="text-2xl mt-2">{data?.following}</h1>
         </span>
       </div>
-      <div className={`w-5/6 h-20 mt-2 p-2 flex justify-between ${theme?'text-[#4b6a9b]':'text-white'}`}>
+      <div
+        className={`md:w-5/6 xs:w-full h-20 md:mt-2 xs:mt-5 p-2 flex justify-between ${
+          theme ? "text-[#4b6a9b]" : "text-white"
+        }`}
+      >
         <div className="w-2/5 h-full flex flex-col justify-between">
           <span className="h-2/5 flex items-center overflow-hidden">
             <img src={iconLocation} alt="" />
-            <p className="ml-3">{data?.location !== null ? data?.location : "Not Specified"}</p>
+            <p className="ml-3 md:text-base xs:text-xs">
+              {data?.location !== null ? data?.location : "Not Specified"}
+            </p>
           </span>
           <span className="h-2/5 flex items-center overflow-hidden">
             <img src={iconWebsite} alt="" />
-            <a target={'_blank'} className="underline ml-2 text-sm" href={data?.html_url}>
+            <a
+              rel="noreferrer"
+              target={"_blank"}
+              className="underline ml-2 md:text-base xs:text-xs"
+              href={data?.html_url}
+            >
               Full Profile
             </a>
           </span>
@@ -129,7 +139,14 @@ const Info = ({ user, theme }) => {
         <div className="w-2/5 h-full flex flex-col justify-between">
           <span className="h-2/5 flex items-center overflow-hidden">
             <img src={iconTwitter} alt="" />
-            <a target={'_blank'} className="ml-2" href={`https://twitter.com/${data?.twitter_username!==null?data?.twitter_username:''}`}>
+            <a
+              rel="noreferrer"
+              target={"_blank"}
+              className="ml-2 md:text-base xs:text-xs"
+              href={`https://twitter.com/${
+                data?.twitter_username !== null ? data?.twitter_username : ""
+              }`}
+            >
               {data?.twitter_username !== null
                 ? data?.twitter_username
                 : "Not Specified"}
@@ -137,7 +154,9 @@ const Info = ({ user, theme }) => {
           </span>
           <span className="h-2/5 flex items-center overflow-hidden">
             <img src={iconCompany} alt="" />
-            <p className="ml-2">{data?.company !== null ? data?.company : "Not Specified"}</p>
+            <p className="ml-2 md:text-base xs:text-xs">
+              {data?.company !== null ? data?.company : "Not Specified"}
+            </p>
           </span>
         </div>
       </div>

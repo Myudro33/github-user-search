@@ -5,7 +5,7 @@ import iconSun from "../assets/icon-sun.svg";
 
 const Navbar = ({ theme, settheme }) => {
   return (
-    <div className="w-[38rem] h-9 flex justify-between items-center">
+    <div className="w-full h-9 flex justify-between items-center">
       <h1
         className={`text-2xl font-semibold ${
           theme ? "text-[#222731]" : "text-[#ffffff]"
@@ -15,7 +15,7 @@ const Navbar = ({ theme, settheme }) => {
       </h1>
       <span className="flex items-center">
         <h1
-          className={`text-xl font-semibold ${
+          className={`text-xl md:flex xs:hidden font-semibold ${
             theme ? "text-[#4b6a9b]" : "text-[#ffffff]"
           }`}
         >
@@ -23,7 +23,7 @@ const Navbar = ({ theme, settheme }) => {
         </h1>
         <img
           onClick={() => settheme((prev) => !prev)}
-          className="w-6 h-6 ml-2"
+          className="w-6 h-6 ml-2 cursor-pointer"
           src={theme ? iconMoon : iconSun}
           alt="icon"
         />
